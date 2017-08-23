@@ -20,10 +20,8 @@ class WhitepaperTable extends Table {
             headerStyle: headerStyle,
             cellStyle: cellStyle
         }, {
-            value: whitepaper => {
-                return <Button level={Level.ERROR}>Delete</Button>
-            },
-            headerName: "Button",
+            value: whitepaper => whitepaper.getDateModified().format("DD/MMM dd w YYYY HH:MM:s:ss"),
+            headerName: "Date modified",
             headerStyle: headerStyle,
             cellStyle: cellStyle
         }];
