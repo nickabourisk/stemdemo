@@ -1,0 +1,11 @@
+{
+  "build": {
+    "configPath": "stemdemoapp/js",
+    "type": "rollup"
+  },
+  "project": {
+    "author": "Nick Abou Risk",
+    "description": "Description yo!",
+    "name": "stemdemo"
+  }
+}
