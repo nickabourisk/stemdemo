@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "establishment.blog",
     "establishment.forum",
     "establishment.misc",
+    "establishment.webapp",
 
     "stemdemoapp",
 ]
