@@ -1,3 +1,4 @@
+import time
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.postgres.fields import CICharField
@@ -77,3 +78,11 @@ class Whitepaper(StreamObjectMixin):
     @classmethod
     def object_type(cls):
         return "whitepaper"
+
+    def get_stream_name(self):
+        return "global-events"
+
+    def update_date(self):
+        self.edit_from_dict({
+            "lastModified": time.time(),
+        })

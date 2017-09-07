@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from establishment.webapp.state import State
-from establishment.webapp.base_views import single_page_app, global_renderer
+from establishment.webapp.base_views import single_page_app, global_renderer, ajax_required
 from stemdemoapp.models import Whitepaper
 
 
@@ -19,3 +19,10 @@ def index(request):
 @single_page_app
 def whitepapers(request):
     return State.from_objects(Whitepaper.objects.all())
+
+
+@ajax_required
+def update_whitepaper(request):
+    whitepaper = Whitepaper.objects.get(id=request.POST["whitepaperId"])
+    whitepaper.update_date()
+    return State.from_objects(whitepaper)
