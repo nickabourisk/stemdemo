@@ -1,6 +1,7 @@
 import {UI, CardPanel, Level, Table, Button} from "ui/UI";
 import {WhitepaperStore} from "./WhitepaperStore";
 import {Ajax} from "base/Ajax";
+import {TranscriptAuthorStore, TranscriptStore, TranscriptLineStore} from "../transcripts/TranscriptStore";
 
 function updateWhitepaper(whitepaper, button) {
     button.setLevel(Level.WARNING);

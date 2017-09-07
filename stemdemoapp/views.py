@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from establishment.webapp.state import State
 from establishment.webapp.base_views import single_page_app, global_renderer, ajax_required
-from stemdemoapp.models import Whitepaper
+from stemdemoapp.models import Whitepaper, TranscriptLine, TranscriptAuthor, Transcript
 
 
 def render_single_page_app(request):
@@ -18,7 +18,10 @@ def index(request):
 
 @single_page_app
 def whitepapers(request):
-    return State.from_objects(Whitepaper.objects.all())
+    return State.from_objects(Whitepaper.objects.all(),
+                              Transcript.objects.all(),
+                              TranscriptAuthor.objects.all(),
+                              TranscriptLine.objects.all())
 
 
 @ajax_required

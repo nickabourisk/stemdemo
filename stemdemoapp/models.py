@@ -86,3 +86,38 @@ class Whitepaper(StreamObjectMixin):
         self.edit_from_dict({
             "lastModified": time.time(),
         })
+
+
+class TranscriptAuthor(StreamObjectMixin):
+    name = models.CharField(max_length=255, null=True, blank=True)
+
+    @classmethod
+    def object_type(cls):
+        return "TranscriptAuthor"
+
+    def __str__(self):
+        return "Transcript author " + self.name
+
+
+class Transcript(StreamObjectMixin):
+    title = models.CharField(max_length=255)
+
+    @classmethod
+    def object_type(cls):
+        return "Transcript"
+
+    def __str__(self):
+        return "Transcript " + self.title
+
+
+class TranscriptLine(StreamObjectMixin):
+    transcript = models.ForeignKey(Transcript, on_delete=models.CASCADE, related_name="lines")
+    author = models.ForeignKey(TranscriptAuthor, on_delete=models.CASCADE)
+    content = models.TextField(max_length=1<<16)
+
+    @classmethod
+    def object_type(cls):
+        return "TranscriptLine"
+
+    def __str__(self):
+        return "Transcript line " + self.author.name + ": " + self.content

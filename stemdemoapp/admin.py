@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User, Whitepaper
+from .models import User, Whitepaper, Transcript, TranscriptLine, TranscriptAuthor
 
 
 class MyUserAdmin(UserAdmin):
@@ -10,3 +10,6 @@ class MyUserAdmin(UserAdmin):
 
 # admin.site.register(User, MyUserAdmin)
 admin.site.register(Whitepaper)
+admin.site.register(Transcript)
+admin.site.register(TranscriptLine)
+admin.site.register(TranscriptAuthor)
