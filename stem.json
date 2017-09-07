@@ -7,5 +7,49 @@
     "author": "Nick Abou Risk",
     "description": "Description yo!",
     "name": "stemdemo"
+  },
+  "djangoRun": {
+    "isCommand": true,
+    "command": [{
+        "type": "django",
+        "command": "migrate"
+      }, {
+        "type": "django",
+        "command": "generate_public_state"
+      }, {
+      "type": "django",
+      "command": "runserver",
+      "extraArgs": ["80"]
+    }
+    ]
+  },
+  "build": {
+    "isCommand": true,
+    "path": "stemdemoapp/js",
+    "command": "rollup",
+    "extraArgs": ["-c"]
+  },
+  "run": {
+    "isCommand": true,
+    "command": [{
+      "background": true,
+      "daemon": true,
+      "type": "stem",
+      "command": "build",
+      "extraArgs": ["--watch"]
+    }, {
+      "background": true,
+      "type": "stem",
+      "command": "djangoRun"
+    }]
+  },
+  "setup": {
+    "dev": {
+      "dependencies": ["redis-server", "nodejs", "postgresql"],
+      "npmDependencies": ["babel-cli", "rollup"]
+    },
+    "production": {
+
+    }
   }
 }

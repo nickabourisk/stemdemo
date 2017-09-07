@@ -1,7 +1,7 @@
 import {UI, Route} from "UI";
 import {IndexPage} from "./IndexPage";
 import {BlogRoute} from "BlogPanel";
-import {ForumRoute} from "ForumWidget";
+import {ForumRoute} from "ForumPanel";
 import {WhitepaperList} from "Whitepapers";
 import {StateDependentElement} from "StateDependentElement";
 

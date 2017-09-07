@@ -73,7 +73,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    "establishment.funnel.middleware.VisitorMiddleware",
+    "establishment.webapp.middleware.VisitorMiddleware",
+    "establishment.webapp.middleware.ProcessResponseMiddleware",
     "establishment.errors.middleware.ErrorMessageProcessingMiddleware",
 ]
 
@@ -90,8 +91,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                "establishment.misc.context_processors.websocket_url",
-                "establishment.misc.context_processors.user_json",
+                "establishment.webapp.context_processors.websocket_url",
+                "establishment.webapp.context_processors.user_json",
                 "stemdemoapp.context_processor.default",
             ],
         },
